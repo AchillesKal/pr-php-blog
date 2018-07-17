@@ -1,0 +1,10 @@
+{
+    "name": "achilleskal/pr-php-blog",
+    "authors": [
+        {
+            "name": "Achilles Kaloeridis",
+            "email": "achilleas90gr@gmail.com"
+        }
+    ],
+    "require": {}
+}
