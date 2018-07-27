@@ -20,4 +20,37 @@ class FeatureContext extends MinkContext implements Context
     public function __construct()
     {
     }
+
+    /**
+     * @Given there are :arg1 blog posts
+     */
+    public function thereAreBlogPosts($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When I click :arg1
+     */
+    public function iClick($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then I should see :arg1 blog posts
+     */
+    public function iShouldSeeBlogPosts($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When I fill in :arg1  with :arg2
+     */
+    public function iFillInWith($arg1, $arg2)
+    {
+        throw new PendingException();
+    }
+
 }
