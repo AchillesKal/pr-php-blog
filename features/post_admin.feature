@@ -8,3 +8,10 @@ Feature: Blog Post Admin Area
     And I am on "/admin"
     When I click "Blog Posts"
     Then I should see 5 blog posts
+
+  Scenario: Add a new blog post
+    Given I am on "/admin/posts"
+    When I click "Blog posts"
+    And I fill in "Title"  with "Blog post 6"
+    And I press "Save"
+    Then I should see "Blog post 6 was saved successfully"
