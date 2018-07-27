@@ -3,12 +3,12 @@
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
-use Behat\MinkExtension\Context\MinkContext;
+use Behat\MinkExtension\Context\RawMinkContext;
 
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context
+class FeatureContext extends RawMinkContext implements Context
 {
     /**
      * Initializes context.
@@ -19,5 +19,14 @@ class FeatureContext implements Context
      */
     public function __construct()
     {
+    }
+
+
+    /**
+     * @return \Behat\Mink\Element\DocumentElement
+     */
+    private function getPage()
+    {
+        return $this->getSession()->getPage();
     }
 }
