@@ -5,6 +5,8 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpKernel\Controller\ControllerResolver;
+use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
 
 $containerBuilder = new ContainerBuilder();
 
@@ -15,5 +17,7 @@ $containerBuilder->register('matcher', UrlMatcher::class)
 
 $containerBuilder->register('request_stack', RequestStack::class);
 
+$containerBuilder->register('controller_resolver', ControllerResolver::class);
+$containerBuilder->register('argument_resolver', ArgumentResolver::class);
 
 return $containerBuilder;
