@@ -1,3 +1,7 @@
 homepage:
   path:     /
   defaults: { _controller: 'PrPhpBlog\FrontPage\Presentation\FrontPageController::index' }
+
+about:
+  path:     /about
+  defaults: { _controller: 'PrPhpBlog\About\Presentation\AboutController::index' }
