@@ -3,11 +3,21 @@
 namespace PrPhpBlog\FrontPage\Presentation;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use PrPhpBlog\Framework\Rendering\TemplateRenderer;
 
 class FrontPageController
 {
-    public function index()
+    private $templateRenderer;
+
+    public function __construct(TemplateRenderer $templateRenderer)
     {
-        return new Response("Homepage");
+        $this->templateRenderer = $templateRenderer;
+    }
+
+    public function index(Request $request): Response
+    {
+        $content = "Homepage";
+        return new Response($content);
     }
 }
