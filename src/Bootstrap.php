@@ -7,10 +7,14 @@ require ROOT_DIR . '/vendor/autoload.php';
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Routing\Loader\YamlFileLoader;
 
 $request = Request::createFromGlobals();
+$fileLocator = new FileLocator(array(__DIR__));
+$loader = new YamlFileLoader($fileLocator);
+$routes = $loader->load('routes.yaml');
 
-$routes = include(ROOT_DIR . '/src/Routes.php');
 $container = include(ROOT_DIR . '/src/container.php');
 
 $container->get('context')->fromRequest($request);
