@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
 
+use PrPHPBlog\Framework\Rendering\TwigTemplateRendererFactory;
+
 $containerBuilder = new ContainerBuilder();
 
 $containerBuilder->register('context', RequestContext::class);
@@ -19,5 +21,8 @@ $containerBuilder->register('request_stack', RequestStack::class);
 
 $containerBuilder->register('controller_resolver', ControllerResolver::class);
 $containerBuilder->register('argument_resolver', ArgumentResolver::class);
+
+$containerBuilder->register('twig', TwigTemplateRendererFactory::class)
+    ->addMethodCall('create');
 
 return $containerBuilder;

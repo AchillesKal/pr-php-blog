@@ -23,7 +23,7 @@ $matcher = $container->get('matcher');
 try {
     $request->attributes->add($matcher->match($request->getPathInfo()));
 
-    $controller =  $container->get('controller_resolver')->getController($request);
+    $controller = $container->get('controller_resolver')->getController($request);
     $arguments = $container->get('argument_resolver')->getArguments($request, $controller);
 
     $response = call_user_func_array($controller, $arguments);
