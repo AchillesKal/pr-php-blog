@@ -8,9 +8,15 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
 
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+
 use PrPHPBlog\Framework\Rendering\TwigTemplateRendererFactory;
 
 $containerBuilder = new ContainerBuilder();
+
+$loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/src'));
+$loader->load('services.yml');
 
 $containerBuilder->register('context', RequestContext::class);
 
