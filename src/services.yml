@@ -20,3 +20,8 @@ services:
         class: PrPHPBlog\Framework\Rendering\TwigTemplateRendererFactory
         calls:
             - [create]
+
+    front_page.controller:
+        class: PrPHPBlog\FrontPage\Presentation\FrontPageController
+        arguments:
+            - '@twig'
