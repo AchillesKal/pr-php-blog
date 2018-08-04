@@ -1,0 +1,22 @@
+services:
+    context:
+        class: Symfony\Component\Routing\RequestContext
+
+    matcher:
+        class: Symfony\Component\Routing\Matcher\UrlMatcher
+        arguments:
+            - '%routes%'
+            - '@context'
+    request_stack:
+        class: Symfony\Component\HttpFoundation\RequestStack
+
+    controller_resolver:
+        class: Symfony\Component\HttpKernel\Controller\ControllerResolver
+
+    argument_resolver:
+        class: Symfony\Component\HttpKernel\Controller\ArgumentResolver
+
+    twig:
+        class: PrPHPBlog\Framework\Rendering\TwigTemplateRendererFactory
+        calls:
+            - [create]
